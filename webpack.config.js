@@ -16,5 +16,11 @@ module.exports = {
    watch: NODE_ENV === 'development',
    watchOptions: {
       ignored: /node_modules/
-   }   
+   },
+   module: {
+      rules: [{
+         test: /\.css$/,
+         use: ['style-loader', 'css-loader']
+      }]
+   }
 };

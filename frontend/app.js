@@ -1,3 +1,5 @@
+import DropDown from './DropDown';
 
+let dropDown = new DropDown({label: 'Menu'});
 
-document.body.innerHTML = 'there will be DropDown';
+document.body.appendChild(dropDown.elem);

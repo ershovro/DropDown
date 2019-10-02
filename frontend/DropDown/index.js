@@ -3,7 +3,7 @@ import './DropDown.css';
 const template = (control) =>
    `  <span class="DropDown__input">  
          <span class="DropDown__input-label">${control.label}</span>
-         <span class="DropDown__input-value"></span>
+         <span class="DropDown__input-value">${control.placeHolder}</span>
          <span class="DropDown__input-arrowContainer">
             <svg
                class="DropDown__input-arrow"
@@ -30,14 +30,15 @@ export default class DropDown {
    } = {}) {   
       this.label = label;
       this.placeHolder = placeHolder;
-      this.items = [...items].map(item => ({value: item, isSelected: false}));
+      this.items = [...items].map( (item, i) => ({id: i, value: item, isSelected: false}));
+      this.selectedId = null;
       this.elem = this.createElement();     
    }
    
    createElement() {
       let elem = document.createElement('div');
+
       elem.className = 'DropDown';
-      
       elem.innerHTML = template(this);
 
       return elem;
